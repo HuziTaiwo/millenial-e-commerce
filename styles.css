@@ -288,6 +288,9 @@ footer ul li a {
 }
 
 @media (max-width: 799px) {
+  header {
+    padding: 20px;
+  }
   .description {
     display: flex;
     flex-direction: column;
@@ -307,7 +310,27 @@ footer ul li a {
   .logo {
     display: none;
   }
+
+  .h_links li {
+    padding: 0 5px;
+  }
+
   .description h1 {
     font-size: 3rem;
+  }
+
+  .cart_btn {
+    padding: 0.2rem 0.5rem;
+  }
+
+  .cart_btn p {
+    font-size: 1rem;
+  }
+
+  .cart_btn img {
+    transform: scale(0.6);
+  }
+  .shop_now {
+    padding: 1rem 4rem;
   }
 }
