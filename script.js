@@ -48,10 +48,17 @@ const init = () => {
     const shop = document.querySelector("#shop");
     shop.addEventListener("click", (e) => {
       if (e.target.classList.contains("add_cart")) {
-        console.log("clicked!!!");
+        const items = {};
+        let counter = 0;
+        const price =
+          e.target.previousElementSibling.previousElementSibling.children[0]
+            .children[1].textContent;
+
+        console.log(price);
       }
     });
   };
+  addItem();
 };
 
 init();
