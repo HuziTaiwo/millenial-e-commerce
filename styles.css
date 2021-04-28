@@ -43,10 +43,14 @@ header {
   display: flex;
   align-items: center;
   color: #ffe9d6;
-  background: #ff913d;
+  background: #ff9a3d;
   border: none;
   border-radius: 200px;
   cursor: pointer;
+}
+
+.cart_btn:hover {
+  background: #ff7a00;
 }
 
 .cart_btn p {
@@ -68,6 +72,7 @@ header {
   opacity: 0;
   pointer-events: none;
   transition: all 0.5s ease;
+  z-index: 5;
 }
 
 .cart_overlay.active {
@@ -79,7 +84,7 @@ header {
   width: 50%;
   margin: 1rem auto 0;
   background: #ffe9d6;
-  min-width: 400px;
+  min-width: 350px;
   border-radius: 5px;
   padding: 2rem;
   position: relative;
@@ -93,7 +98,7 @@ header {
   padding: 0.5rem;
   border-radius: 3px;
   margin: 1rem auto;
-  min-width: 350px;
+  min-width: 300px;
 }
 
 .cart_description {
@@ -123,6 +128,7 @@ header {
   border-radius: 3px;
   cursor: pointer;
   color: #000;
+  font-weight: 500;
 }
 
 #cont {
@@ -170,6 +176,11 @@ header {
   font-size: 1rem;
   color: #ffe9d6;
   cursor: pointer;
+  font-weight: 600;
+}
+
+.shop_now:hover {
+  background: #ff7a00;
 }
 
 #about {
@@ -251,6 +262,11 @@ header {
   font-size: 1rem;
   color: #af4f0e;
   cursor: pointer;
+  font-weight: 600;
+}
+
+.product button:hover {
+  background: #ff7a00;
 }
 
 footer {
