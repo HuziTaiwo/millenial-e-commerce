@@ -181,8 +181,6 @@ header {
 }
 
 #shop {
-  /* width: 80%;
-  margin: 0 auto; */
   padding: 1rem 3.5rem;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -304,6 +302,9 @@ footer ul li a {
   .description img {
     transform: scale(1);
   }
+  #shop {
+    padding: 1rem 2.5rem;
+  }
 }
 
 @media (max-width: 666px) {
@@ -332,5 +333,9 @@ footer ul li a {
   }
   .shop_now {
     padding: 1rem 4rem;
+  }
+
+  #shop {
+    padding: 1rem 1.5rem;
   }
 }
