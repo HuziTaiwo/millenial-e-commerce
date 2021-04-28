@@ -29,6 +29,20 @@ const init = () => {
     }
   };
   showCart();
+
+  const removeItem = () => {
+    const cartTable = document.querySelector("table");
+    // const rmvBtn = document.querySelectorAll("#remove_item");
+
+    cartTable.addEventListener("click", (e) => {
+      if (e.target.classList.contains("fa-trash")) {
+        const tr = e.target.parentElement.parentElement.parentElement;
+        const table = tr.parentElement;
+        table.removeChild(tr);
+      }
+    });
+  };
+  removeItem();
 };
 
 init();
