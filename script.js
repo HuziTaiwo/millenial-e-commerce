@@ -43,6 +43,15 @@ const init = () => {
     });
   };
   removeItem();
+
+  const addItem = () => {
+    const shop = document.querySelector("#shop");
+    shop.addEventListener("click", (e) => {
+      if (e.target.classList.contains("add_cart")) {
+        console.log("clicked!!!");
+      }
+    });
+  };
 };
 
 init();
