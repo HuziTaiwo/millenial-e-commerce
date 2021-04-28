@@ -69,8 +69,8 @@ header {
   left: 0;
   height: 100vh;
   width: 100%;
-  opacity: 0;
-  pointer-events: none;
+  /* opacity: 0;
+  pointer-events: none; */
   transition: all 0.5s ease;
   z-index: 5;
 }
@@ -113,6 +113,7 @@ header {
 .cart_description p {
   font-size: 1.2rem;
   padding-bottom: 0.5rem;
+  font-weight: 600;
 }
 
 .cart_cta {
@@ -129,6 +130,18 @@ header {
   cursor: pointer;
   color: #000;
   font-weight: 500;
+}
+
+table {
+  width: 100%;
+  text-align: center;
+}
+
+td,
+th {
+  border: 1px solid #ffcd9e;
+  border-radius: 3px;
+  padding: 0.5rem;
 }
 
 #cont {
