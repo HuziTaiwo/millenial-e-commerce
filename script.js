@@ -14,6 +14,7 @@ const init = () => {
   const showCart = () => {
     const cartBtn = document.querySelector(".cart_btn");
     const cartOverlay = document.querySelector(".cart_overlay");
+    const closeBtn = document.querySelector(".fa-times");
     const cont = document.querySelector("#cont");
 
     cartBtn.addEventListener("click", showPopup);
@@ -23,18 +24,85 @@ const init = () => {
 
     cont.addEventListener("click", removePopup);
 
-    cartOverlay.addEventListener("click", removePopup);
-    function removePopup() {
+    closeBtn.addEventListener("click", removePopup);
+    function removePopup(e) {
+      if (e.target.classList.contains("cart_overlay"));
       cartOverlay.classList.remove("active");
     }
   };
   showCart();
 
+  const addItem = () => {
+    const shop = document.querySelector("#shop");
+    shop.addEventListener("click", (e) => {
+      if (e.target.classList.contains("add_cart")) {
+        const items = {};
+        let counter = 0;
+        items.counter = counter;
+        let name = e.target.previousElementSibling.textContent;
+        items.name = name;
+        let price =
+          e.target.previousElementSibling.previousElementSibling.children[0]
+            .children[1].textContent;
+        fPrice = price.slice(1).trim();
+        items.price = fPrice;
+
+        const tableRow = document.createElement("tr");
+        tableRow.innerHTML = `<td>${(counter = +1)}</td>
+        <td>${name}</td>
+        <td>#<span class="item_price">${fPrice}</span></td>
+        <td>
+          <button class="fas fa-minus"></button
+          ><span class="counter">0</span
+          ><button class="fas fa-plus"></button>
+        </td>
+        <td>
+          <button class="remove_item">
+            <i class="fas fa-trash"></i>
+          </button>
+        </td>`;
+
+        const table = document.querySelector("table");
+        table.appendChild(tableRow);
+
+        showTotal();
+      }
+    });
+  };
+  addItem();
+
   const removeItem = () => {
     const cartTable = document.querySelector("table");
-    // const rmvBtn = document.querySelectorAll("#remove_item");
 
     cartTable.addEventListener("click", (e) => {
+      if (e.target.classList.contains("fa-minus")) {
+        let itemDec = e.target.nextElementSibling;
+        if (itemDec.textContent == 0) {
+          alert(
+            "You canot have more than 1 item, if you wish to remove the item, kindly click on the delete icon"
+          );
+        } else {
+          let price =
+            itemDec.parentElement.previousElementSibling.children[0]
+              .textContent;
+          itemDec.textContent -= 1;
+          e.target.parentElement.previousElementSibling.children[0].textContent =
+            price * itemDec.textContent;
+        }
+      }
+
+      if (e.target.classList.contains("fa-plus")) {
+        let itemInc = e.target.previousElementSibling;
+        let price =
+          itemInc.parentElement.previousElementSibling.children[0].textContent;
+        console.log(price);
+        itemInc.textContent++;
+        console.log(
+          (e.target.parentElement.previousElementSibling.children[0].textContent =
+            price * itemInc.textContent)
+        );
+      }
+
       if (e.target.classList.contains("fa-trash")) {
         const tr = e.target.parentElement.parentElement.parentElement;
         const table = tr.parentElement;
@@ -44,21 +112,21 @@ const init = () => {
   };
   removeItem();
 
-  const addItem = () => {
-    const shop = document.querySelector("#shop");
-    shop.addEventListener("click", (e) => {
-      if (e.target.classList.contains("add_cart")) {
-        const items = {};
-        let counter = 0;
-        const price =
-          e.target.previousElementSibling.previousElementSibling.children[0]
-            .children[1].textContent;
+  function showTotal() {
+    const total = [];
+    const itemPrices = document.querySelectorAll(".item_price");
 
-        console.log(price);
-      }
+    itemPrices.forEach((item) => {
+      total.push(parseInt(item.textContent));
+      const totalPrice = total.reduce((total, item) => {
+        total += item;
+        return total;
+      });
+
+      document.querySelector(".total_price").textContent = totalPrice;
+      document.querySelector(".item_count").textContent = total.length;
     });
-  };
-  addItem();
+  }
 };
 
 init();

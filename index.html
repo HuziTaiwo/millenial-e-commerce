@@ -33,6 +33,7 @@
       </header>
       <div class="cart_overlay">
         <div class="cart_popup">
+          <button class="fas fa-times"></button>
           <table>
             <tr>
               <th>S/N</th>
@@ -44,30 +45,12 @@
             <tr>
               <td>1</td>
               <td>PS5</td>
-              <td>#300,000</td>
-              <td>1</td>
+              <td>#<span class="item_price">300000</span></td>
               <td>
-                <button class="remove_item">
-                  <i class="fas fa-trash"></i>
-                </button>
+                <button class="fas fa-minus"></button
+                ><span class="counter">5</span
+                ><button class="fas fa-plus"></button>
               </td>
-            </tr>
-            <tr>
-              <td>1</td>
-              <td>PS5</td>
-              <td>#300,000</td>
-              <td>1</td>
-              <td>
-                <button class="remove_item">
-                  <i class="fas fa-trash"></i>
-                </button>
-              </td>
-            </tr>
-            <tr>
-              <td>1</td>
-              <td>PS5</td>
-              <td>#300,000</td>
-              <td>1</td>
               <td>
                 <button class="remove_item">
                   <i class="fas fa-trash"></i>
@@ -75,14 +58,14 @@
               </td>
             </tr>
           </table>
-          <form>
+          <form id="form_info">
             <input type="text" id="name" placeholder="Your Name" />
             <input type="email" id="email" placeholder="Your Email" />
             <input type="tel" id="number" placeholder="Your Phone Number" />
           </form>
           <div class="cart_description">
             <h2>Total Amount to be paid</h2>
-            <p>#0</p>
+            <p>#<span class="total_price">0</span></p>
           </div>
           <div class="cart_cta">
             <button id="cont">Continue Shopping</button>
@@ -113,7 +96,7 @@
         <div class="product_img">
           <div class="overlay">
             <p>Price</p>
-            <h3>#300,000</h3>
+            <h3>#300000</h3>
           </div>
           <img src="./assests/product1.png" alt="samsungTV" />
         </div>
@@ -124,7 +107,7 @@
         <div class="product_img">
           <div class="overlay">
             <p>Price</p>
-            <h3>#300,000</h3>
+            <h3>#300000</h3>
           </div>
           <img src="./assests/product2.png" alt="pixel 4a" />
         </div>
@@ -135,7 +118,7 @@
         <div class="product_img">
           <div class="overlay">
             <p>Price</p>
-            <h3>#300,000</h3>
+            <h3>#300000</h3>
           </div>
           <img src="./assests/product3.png" alt="ps5" />
         </div>
@@ -146,7 +129,7 @@
         <div class="product_img">
           <div class="overlay">
             <p>Price</p>
-            <h3>#300,000</h3>
+            <h3>#300000</h3>
           </div>
           <img src="./assests/product4.png" alt="macbook air" />
         </div>
@@ -157,7 +140,7 @@
         <div class="product_img">
           <div class="overlay">
             <p>Price</p>
-            <h3>#300,000</h3>
+            <h3>#300000</h3>
           </div>
           <img src="./assests/product5.png" alt="apple watch" />
         </div>
@@ -168,7 +151,7 @@
         <div class="product_img">
           <div class="overlay">
             <p>Price</p>
-            <h3>#300,000</h3>
+            <h3>#300000</h3>
           </div>
           <img src="./assests/product6.png" alt="aip pod" />
         </div>
@@ -176,7 +159,7 @@
         <button class="add_cart">Add to cart</button>
       </div>
     </div>
-    <footer>
+    <!-- <footer>
       <img src="./assests/EMS.svg" alt="logo" />
       <ul>
         <li><a href="links">Links</a></li>
@@ -184,7 +167,7 @@
         <li><a href="links">Links</a></li>
         <li><a href="links">Links</a></li>
       </ul>
-    </footer>
+    </footer> -->
 
     <script src="./script.js"></script>
   </body>

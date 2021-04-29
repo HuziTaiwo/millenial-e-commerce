@@ -69,8 +69,8 @@ header {
   left: 0;
   height: 100vh;
   width: 100%;
-  opacity: 0;
-  pointer-events: none;
+  /* opacity: 0;
+  pointer-events: none; */
   transition: all 0.5s ease;
   z-index: 5;
 }
@@ -88,6 +88,22 @@ header {
   border-radius: 5px;
   padding: 2rem;
   position: relative;
+}
+
+.fa-times {
+  border: none;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  font-size: 1.3rem;
+  color: #ff913d;
+  padding: 0.5rem;
+  cursor: pointer;
+  background: transparent;
+}
+
+.fa-times:hover {
+  color: #ff7a00;
 }
 
 .cart_popup input {
@@ -117,10 +133,9 @@ header {
 }
 
 .cart_cta {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  padding: 0.2rem 0.2rem 0.2rem 0;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
 }
 
 table {
@@ -135,6 +150,26 @@ th {
   padding: 0.5rem;
 }
 
+tr .fa-minus,
+.fa-plus {
+  background: #ff913d;
+  color: #fff;
+  font-size: 0.8rem;
+  padding: 0.5rem;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+}
+
+tr .fa-minus:hover,
+.fa-plus:hover {
+  background: #ff7a00;
+}
+
+.counter {
+  padding: 0 0.5rem;
+}
+
 .remove_item {
   border: none;
 }
@@ -142,6 +177,7 @@ th {
 .fa-trash {
   font-size: 1.3rem;
   color: #ff913d;
+  cursor: pointer;
 }
 
 .fa-trash:hover {
@@ -155,6 +191,8 @@ th {
   cursor: pointer;
   color: #000;
   font-weight: 600;
+  text-transform: uppercase;
+  font-size: 1.1rem;
 }
 
 #cont {
@@ -267,10 +305,6 @@ th {
   font-size: 2.5rem;
 }
 
-/* .overlay h3::first-letter {
-  text-decoration: line-through;
-} */
-
 .overlay p {
   text-decoration: underline;
   font-size: 1.5rem;
@@ -325,6 +359,10 @@ footer ul li a {
   .description h1 {
     font-size: 4rem;
   }
+
+  .cart_popup {
+    width: 80%;
+  }
 }
 
 @media (max-width: 799px) {
@@ -344,8 +382,13 @@ footer ul li a {
   .description img {
     transform: scale(1);
   }
+
   #shop {
     padding: 1rem 2.5rem;
+  }
+
+  #about {
+    font-size: 1.6rem;
   }
 }
 
@@ -375,6 +418,36 @@ footer ul li a {
   }
   .shop_now {
     padding: 1rem 4rem;
+  }
+
+  .cart_popup {
+    width: 98%;
+    padding: 2rem 0.3rem;
+    margin: 0 auto;
+  }
+
+  td,
+  th {
+    padding: 0.2rem;
+  }
+
+  th:first-child,
+  td:first-child {
+    display: none;
+  }
+
+  .cart_cta {
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+  }
+
+  .cart_cta button {
+    margin: 0.5rem 0;
+  }
+
+  #about {
+    font-size: 1.2rem;
   }
 
   #shop {
