@@ -48,12 +48,12 @@ const init = () => {
         items.price = fPrice;
 
         const tableRow = document.createElement("tr");
-        tableRow.innerHTML = `<td>${(counter = +1)}</td>
+        tableRow.innerHTML = `<td>${2}</td>
         <td>${name}</td>
         <td>#<span class="item_price">${fPrice}</span></td>
         <td>
           <button class="fas fa-minus"></button
-          ><span class="counter">0</span
+          ><span class="counter">1</span
           ><button class="fas fa-plus"></button>
         </td>
         <td>
@@ -77,17 +77,17 @@ const init = () => {
     cartTable.addEventListener("click", (e) => {
       if (e.target.classList.contains("fa-minus")) {
         let itemDec = e.target.nextElementSibling;
-        if (itemDec.textContent == 0) {
+        if (itemDec.textContent <= 1) {
           alert(
-            "You canot have more than 1 item, if you wish to remove the item, kindly click on the delete icon"
+            "You canot have less then 1 item, if you wish to remove the item, kindly click on the delete icon"
           );
         } else {
           let price =
             itemDec.parentElement.previousElementSibling.children[0]
               .textContent;
-          itemDec.textContent -= 1;
           e.target.parentElement.previousElementSibling.children[0].textContent =
-            price * itemDec.textContent;
+            price / parseInt(itemDec.textContent);
+          itemDec.textContent -= 1;
         }
       }
 
@@ -97,10 +97,8 @@ const init = () => {
           itemInc.parentElement.previousElementSibling.children[0].textContent;
         console.log(price);
         itemInc.textContent++;
-        console.log(
-          (e.target.parentElement.previousElementSibling.children[0].textContent =
-            price * itemInc.textContent)
-        );
+        e.target.parentElement.previousElementSibling.children[0].textContent =
+          price * parseInt(itemInc.textContent);
       }
 
       if (e.target.classList.contains("fa-trash")) {
