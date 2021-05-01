@@ -34,8 +34,11 @@ const init = () => {
 
   const addItem = () => {
     const shop = document.querySelector("#shop");
+    // add item to cart
     shop.addEventListener("click", (e) => {
       if (e.target.classList.contains("add_cart")) {
+        e.target.className = "removed";
+        e.target.textContent = "REMOVE FROM CART";
         const items = {};
         let counter = 0;
         items.counter = counter;
@@ -48,7 +51,7 @@ const init = () => {
         items.price = fPrice;
 
         const tableRow = document.createElement("tr");
-        tableRow.innerHTML = `<td>${2}</td>
+        tableRow.innerHTML = `<td>${1}</td>
         <td>${name}</td>
         <td>#<span class="item_price">${fPrice}</span></td>
         <td>
@@ -95,10 +98,12 @@ const init = () => {
         let itemInc = e.target.previousElementSibling;
         let price =
           itemInc.parentElement.previousElementSibling.children[0].textContent;
-        console.log(price);
+
         itemInc.textContent++;
-        e.target.parentElement.previousElementSibling.children[0].textContent =
-          price * parseInt(itemInc.textContent);
+
+        let itemPrice = (e.target.parentElement.previousElementSibling.children[0].textContent =
+          price * parseInt(itemInc.textContent));
+        showTotal();
       }
 
       if (e.target.classList.contains("fa-trash")) {

@@ -69,8 +69,8 @@ header {
   left: 0;
   height: 100vh;
   width: 100%;
-  /* opacity: 0;
-  pointer-events: none; */
+  opacity: 0;
+  pointer-events: none;
   transition: all 0.5s ease;
   z-index: 5;
 }
@@ -258,7 +258,7 @@ tr .fa-minus:hover,
 #shop {
   padding: 1rem 3.5rem;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
 }
 
 #shop img {
@@ -323,6 +323,10 @@ tr .fa-minus:hover,
   color: #af4f0e;
   cursor: pointer;
   font-weight: 600;
+}
+
+.product button.removed {
+  background: #ffcd9e;
 }
 
 .product button:hover {
@@ -406,11 +410,7 @@ footer ul li a {
   }
 
   .cart_btn {
-    padding: 0.2rem 0.5rem;
-  }
-
-  .cart_btn p {
-    font-size: 1rem;
+    transform: scale(0.8);
   }
 
   .cart_btn img {
