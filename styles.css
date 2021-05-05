@@ -258,7 +258,7 @@ tr .fa-minus:hover,
 #shop {
   padding: 1rem 3.5rem;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
 }
 
 #shop img {
@@ -325,12 +325,18 @@ tr .fa-minus:hover,
   font-weight: 600;
 }
 
-.product button.removed {
-  background: #ffcd9e;
-}
-
 .product button:hover {
   background: #ff7a00;
+}
+
+.product button.inactive {
+  text-transform: uppercase;
+  background: #ffcd9e;
+  cursor: not-allowed;
+}
+
+.product button.inactive:hover {
+  background: #ffcd9e;
 }
 
 footer {

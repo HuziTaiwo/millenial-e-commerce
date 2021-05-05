@@ -37,10 +37,10 @@ const init = () => {
     // add item to cart
     shop.addEventListener("click", (e) => {
       if (e.target.classList.contains("add_cart")) {
-        e.target.className = "removed";
-        e.target.textContent = "REMOVE FROM CART";
+        e.target.textContent = "Remove from cart";
+        e.target.classList.add("inactive");
         const items = {};
-        let counter = 0;
+        let counter = 1;
         items.counter = counter;
         let name = e.target.previousElementSibling.textContent;
         items.name = name;
@@ -51,12 +51,12 @@ const init = () => {
         items.price = fPrice;
 
         const tableRow = document.createElement("tr");
-        tableRow.innerHTML = `<td>${1}</td>
+        tableRow.innerHTML = `<td>${counter + 1}</td>
         <td>${name}</td>
         <td>#<span class="item_price">${fPrice}</span></td>
         <td>
           <button class="fas fa-minus"></button
-          ><span class="counter">1</span
+          ><span>1</span
           ><button class="fas fa-plus"></button>
         </td>
         <td>
@@ -91,6 +91,8 @@ const init = () => {
           e.target.parentElement.previousElementSibling.children[0].textContent =
             price / parseInt(itemDec.textContent);
           itemDec.textContent -= 1;
+
+          showTotal();
         }
       }
 
@@ -100,9 +102,8 @@ const init = () => {
           itemInc.parentElement.previousElementSibling.children[0].textContent;
 
         itemInc.textContent++;
-
-        let itemPrice = (e.target.parentElement.previousElementSibling.children[0].textContent =
-          price * parseInt(itemInc.textContent));
+        e.target.parentElement.previousElementSibling.children[0].textContent =
+          price * parseInt(itemInc.textContent);
         showTotal();
       }
 
@@ -110,6 +111,7 @@ const init = () => {
         const tr = e.target.parentElement.parentElement.parentElement;
         const table = tr.parentElement;
         table.removeChild(tr);
+        showTotal();
       }
     });
   };
