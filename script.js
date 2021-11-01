@@ -11,6 +11,7 @@ const init = () => {
       overlay.classList.remove("active");
     });
   });
+
   const showCart = () => {
     const cartBtn = document.querySelector(".cart_btn");
     const cartOverlay = document.querySelector(".cart_overlay");
